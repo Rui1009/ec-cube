@@ -545,6 +545,9 @@ Styleguide 1.2.1
 .ec-link:hover {
     color: #33A8D0;
     text-decoration: none; }
+.ec-sample {
+  color: #DE5D50;
+  text-align: center; }
 /*
 テキスト（太字）
 
