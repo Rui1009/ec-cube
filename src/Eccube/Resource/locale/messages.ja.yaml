@@ -261,6 +261,15 @@ front.mypage.withdraw_complete_message__body: |
   またのご来店をお待ちしております。
 
 #------------------------------------------------------------------------------------
+# 会社
+#------------------------------------------------------------------------------------
+front.company.search__name_not_found: ご指定の会社名は存在しません
+front.company.all_category: 全て
+front.company.search_result__keyword: 「%name%」の検索結果
+front.company.search_result__detail: '<span class="ec-font-bold">%count%件</span><span>の会社が見つかりました</span>'
+front.company.search__company_not_found: お探しの会社は見つかりませんでした
+
+#------------------------------------------------------------------------------------
 # 商品
 #------------------------------------------------------------------------------------
 

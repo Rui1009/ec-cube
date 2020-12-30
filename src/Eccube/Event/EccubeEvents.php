@@ -486,6 +486,12 @@ final class EccubeEvents
     const FRONT_FORGOT_RESET_COMPLETE = 'front.reset.index.complete';
 
     /**
+     * CompaniesController
+     */
+    // index
+    const FRONT_COMPANY_INDEX_INITIALIZE = 'front.company.index.initialize';
+    const FRONT_COMPANY_INDEX_SEARCH = 'front.company.index.search';
+    /**
      * ProductController
      */
     // index

@@ -1,0 +1,83 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#} 
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'company_page' %}
+{% block main %}
+    {% if search_form.name.vars.errors|length > 0 %}
+        <div class="ec-searchnavRole">
+            <p class="errormsg text-danger">{{ 'front.product.search__name_not_found'|trans }}</p>
+        </div>
+    {% else %}
+        <div class="ec-searchnavRole">
+            <form name="form1" id="form1" method="get" action="?">
+                {% for item in search_form %}
+                    <input type="hidden" id="{{ item.vars.id }}"
+                           name="{{ item.vars.full_name }}"
+                           {% if item.vars.value is not empty %}value="{{ item.vars.value }}" {% endif %}/>
+                {% endfor %}
+            </form>
+            <div class="ec-searchnavRole__topicpath">
+                <ol class="ec-topicpath">
+                    <li class="ec-topicpath__item"><a href="{{ url('company_list') }}">{{ 'front.company.all_category'|trans }}</a>
+                    </li>
+                        <li class="ec-topicpath__divider">|</li>
+                    {% if search_form.vars.value and search_form.vars.value.name %}
+                        <li class="ec-topicpath__divider">|</li>
+                        <li class="ec-topicpath__item">{{ 'front.company.search_result__keyword'|trans({ '%name%': search_form.vars.value.name }) }}</li>
+                    {% endif %}
+                </ol>
+            </div>
+            <div class="ec-searchnavRole__infos">
+                <div class="ec-searchnavRole__counter">
+                    {% if pagination.totalItemCount > 0 %}
+                        {{ 'front.company.search_result__detail'|trans({ '%count%': pagination.totalItemCount })|raw }}
+                    {% else %}
+                        <span>{{ 'front.company.search__company_not_found'|trans }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        {% if pagination.totalItemCount > 0 %}
+            <div class="ec-shelfRole">
+                <ul class="ec-shelfGrid">
+                    {% for Company in pagination %}
+                        <li class="ec-shelfGrid__item">
+                            <a href="{{ url('company_detail', {'id': Company.id}) }}">
+                                <p class="ec-shelfGrid__item-image">
+                                    <img src="{{ asset(Company.main_list_image|no_image_product, 'save_image') }}">
+                                </p>
+                                <p>{{ Company.name }}</p>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="ec-modal">
+                <div class="ec-modal-overlay">
+                    <div class="ec-modal-wrap">
+                        <span class="ec-modal-close"><span class="ec-icon"><img src="{{ asset('assets/icon/cross-dark.svg') }}" alt=""/></span></span>
+                        {# <div id="ec-modal-header" class="text-center">{{ 'front.product.add_cart_complete'|trans }}</div> #}
+                        {# <div class="ec-modal-box">
+                            <div class="ec-role">
+                                <span class="ec-inlineBtn--cancel">{{ 'front.product.continue'|trans }}</span>
+                                <a href="{{ url('cart') }}" class="ec-inlineBtn--action">{{ 'common.go_to_cart'|trans }}</a>
+                            </div>
+                        </div> #}
+                    </div>
+                </div>
+            </div>
+            <div class="ec-pagerRole">
+                {% include "pager.twig" with {'pages': pagination.paginationData} %}
+            </div>
+        {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
