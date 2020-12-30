@@ -32,8 +32,6 @@ class SearchProductType extends AbstractType
 
     /**
      * SearchProductType constructor.
-     *
-     * @param CategoryRepository $categoryRepository
      */
     public function __construct(CategoryRepository $categoryRepository)
     {
@@ -47,7 +45,6 @@ class SearchProductType extends AbstractType
     {
         $Categories = $this->categoryRepository
             ->getList(null, true);
-
         $builder->add('mode', HiddenType::class, [
             'data' => 'search',
         ]);

@@ -107,10 +107,14 @@ class CompaniesController extends AbstractController
 
         $orderByForm->handleRequest($request);
 
+        $category = $searchForm->get('category_id')->getData();
+
         return [
             'pagination' => $pagination,
             'search_form' => $searchForm->createView(),
             'order_by_form' => $orderByForm->createView(),
+            'form' => $builder->getForm()->createView(),
+            'Category' => $category,
         ];
     }
 }

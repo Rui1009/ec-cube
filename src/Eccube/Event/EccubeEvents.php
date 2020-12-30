@@ -198,6 +198,16 @@ final class EccubeEvents
     const ADMIN_PRODUCT_CATEGORY_CSV_EXPORT = 'admin.product.category.csv.export';
 
     /**
+     * Admin/Company/CategoryCompanyController
+     */
+    // index
+    const ADMIN_COMPANY_CATEGORY_COMPANY_INDEX_INITIALIZE = 'admin.company.category.company.index.initialize';
+    const ADMIN_COMPANY_CATEGORY_COMPANY_INDEX_COMPLETE = 'admin.company.category.company.index.complete';
+
+    // delete
+    const ADMIN_COMPANY_CATEGORY_COMPANY_DELETE_COMPLETE = 'admin.company.category.company.delete.complete';
+
+    /**
      * Admin/Product/TagController
      */
     // index

@@ -6,6 +6,7 @@ common.select: 選択してください
 common.select__pref: 都道府県を選択
 common.select__unspecified: 指定なし
 common.select__all_products: 全ての商品
+common.select__all_companies: 全ての会社
 common.required: 必須
 common.back: 戻る
 common.close: 閉じる
@@ -266,6 +267,7 @@ front.mypage.withdraw_complete_message__body: |
 front.company.search__name_not_found: ご指定の会社名は存在しません
 front.company.all_category: 全て
 front.company.search_result__keyword: 「%name%」の検索結果
+front.product.all_companies: 全会社
 front.company.search_result__detail: '<span class="ec-font-bold">%count%件</span><span>の会社が見つかりました</span>'
 front.company.search__company_not_found: お探しの会社は見つかりませんでした
 
