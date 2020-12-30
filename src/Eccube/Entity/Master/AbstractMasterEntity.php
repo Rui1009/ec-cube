@@ -125,6 +125,26 @@ abstract class AbstractMasterEntity extends \Eccube\Entity\AbstractEntity
         return $this->sort_no;
     }
 
+    /**
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param string $category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
     public function __get($name)
     {
         return self::getConstantValue($name);
