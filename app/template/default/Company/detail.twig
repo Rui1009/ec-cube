@@ -1,0 +1,13 @@
+{% extends 'default_frame.twig' %}
+
+{% block title %}{{ 'shopping_mall.admin.shop.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'shopping_mall.admin.shop.sub_title'|trans }}{% endblock %}
+
+{% block main %}
+    <h2>{{ Company.name }}</h2>
+    {% for Product in Products %}
+        <a href="/products/detail/{{ Product.id }}">
+            <h4>{{ Product.id }}</h4>
+        </a>
+    {% endfor %}
+{% endblock %}

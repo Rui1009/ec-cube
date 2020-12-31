@@ -17,6 +17,7 @@ use Eccube\Controller\AbstractController;
 use Eccube\Event\EccubeEvents;
 use Eccube\Event\EventArgs;
 use Eccube\Form\Type\SearchCompanyType;
+use Eccube\Repository\ProductRepository;
 use Knp\Component\Pager\Paginator;
 use Plugin\ShoppingMall\Repository\ShopRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -31,11 +32,17 @@ class CompaniesController extends AbstractController
     protected $shopRepository;
 
     /**
+     * @var ProductRepository
+     */
+    protected $productRepository;
+
+    /**
      * CompaniesController constructor.
      */
-    public function __construct(ShopRepository $shopRepository)
+    public function __construct(ShopRepository $shopRepository, ProductRepository $productRepository)
     {
         $this->shopRepository = $shopRepository;
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -115,6 +122,27 @@ class CompaniesController extends AbstractController
             'order_by_form' => $orderByForm->createView(),
             'form' => $builder->getForm()->createView(),
             'Category' => $category,
+        ];
+    }
+
+    /**
+     * 会社詳細画面
+     *
+     * @Route("/companies/{id}", name="company_detail", methods={"GET"})
+     * @Template("Company/detail.twig")
+     *
+     * @return array
+     */
+    public function detail($id)
+    {
+        $Company = $this->shopRepository->find($id);
+        $Product = $this->productRepository->findBy(['Shop' => ['id' => $id]]);
+
+        log_info(count($Product));
+
+        return [
+            'Company' => $Company,
+            'Products' => $Product,
         ];
     }
 }

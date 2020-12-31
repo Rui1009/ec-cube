@@ -276,6 +276,8 @@ front.company.search_result__keyword: 「%name%」の検索結果
 front.product.all_companies: 全会社
 front.company.search_result__detail: '<span class="ec-font-bold">%count%件</span><span>の会社が見つかりました</span>'
 front.company.search__company_not_found: お探しの会社は見つかりませんでした
+front.move.to.company.detail: 会社詳細へ
+
 
 #------------------------------------------------------------------------------------
 # 商品

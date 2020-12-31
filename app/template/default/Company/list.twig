@@ -80,27 +80,19 @@ file that was distributed with this source code.
                         <li class="ec-shelfGrid__item">
                             <div>
                                 <p class="ec-shelfGrid__item-image">
-                                    s
+                                    image
                                 </p>
                                 <p>{{ Company.name }}</p>
+                                <p>{{ Company.id }}</p>
+                                <div class="ec-modal-wrap">
+                                    <div class="ec-modal-box">
+                                        <a href="{{ Company.id }}" class="ec-inlineBtn--action">{{ 'front.move.to.company.detail'|trans }}</a>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                     {% endfor %}
                 </ul>
-            </div>
-            <div class="ec-modal">
-                <div class="ec-modal-overlay">
-                    <div class="ec-modal-wrap">
-                        <span class="ec-modal-close"><span class="ec-icon"><img src="{{ asset('assets/icon/cross-dark.svg') }}" alt=""/></span></span>
-                        {# <div id="ec-modal-header" class="text-center">{{ 'front.product.add_cart_complete'|trans }}</div> #}
-                        {# <div class="ec-modal-box">
-                            <div class="ec-role">
-                                <span class="ec-inlineBtn--cancel">{{ 'front.product.continue'|trans }}</span>
-                                <a href="{{ url('cart') }}" class="ec-inlineBtn--action">{{ 'common.go_to_cart'|trans }}</a>
-                            </div>
-                        </div> #}
-                    </div>
-                </div>
             </div>
             <div class="ec-pagerRole">
                 {% include "pager.twig" with {'pages': pagination.paginationData} %}

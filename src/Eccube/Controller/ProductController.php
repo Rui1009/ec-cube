@@ -291,6 +291,8 @@ class ProductController extends AbstractController
             $is_favorite = $this->customerFavoriteProductRepository->isFavorite($Customer, $Product);
         }
 
+        log_info($Product->toJSON());
+
         return [
             'title' => $this->title,
             'subtitle' => $Product->getName(),
