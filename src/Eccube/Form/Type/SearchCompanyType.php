@@ -13,7 +13,7 @@
 
 namespace Eccube\Form\Type;
 
-use Eccube\Repository\CategoryRepository;
+use Eccube\Repository\CategoryCompanyRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -24,16 +24,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class SearchCompanyType extends AbstractType
 {
     /**
-     * @var CategoryRepository
+     * @var CategoryCompanyRepository
      */
-    protected $categoryRepository;
+    protected $categoryCompanyRepository;
 
     /**
-     * SearchProductType constructor.
+     * SearchCompanyType constructor.
      */
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(CategoryCompanyRepository $categoryCompanyRepository)
     {
-        $this->categoryRepository = $categoryRepository;
+        $this->categoryCompanyRepository = $categoryCompanyRepository;
     }
 
     /**
@@ -41,7 +41,7 @@ class SearchCompanyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $Categories = $this->categoryRepository
+        $Categories = $this->categoryCompanyRepository
         ->getList(null, true);
 
         $builder->add('name', SearchType::class, [
@@ -51,7 +51,7 @@ class SearchCompanyType extends AbstractType
             ],
         ]);
         $builder->add('category_id', EntityType::class, [
-            'class' => 'Eccube\Entity\Category',
+            'class' => 'Eccube\Entity\CategoryCompany',
             'required' => false,
             'choice_label' => 'NameWithLevel',
             'placeholder' => 'common.select__all_companies',

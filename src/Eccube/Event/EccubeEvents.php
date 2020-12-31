@@ -334,6 +334,8 @@ final class EccubeEvents
     // index
     const ADMIN_SETTING_SHOP_SHOP_INDEX_INITIALIZE = 'admin.setting.shop.shop.index.initialize';
     const ADMIN_SETTING_SHOP_SHOP_INDEX_COMPLETE = 'admin.setting.shop.shop.index.complete';
+    // edit
+    const ADMIN_COMPANY_EDIT_SEARCH = 'admin.company.edit.search';
 
     /**
      * Admin/Setting/Shop/TaxRuleController

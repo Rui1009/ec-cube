@@ -226,7 +226,7 @@ if (!class_exists('\Eccube\Entity\CategoryCompany')) {
          */
         public function __construct()
         {
-            $this->ProductCategories = new \Doctrine\Common\Collections\ArrayCollection();
+            $this->CompanyCategories = new \Doctrine\Common\Collections\ArrayCollection();
             $this->Children = new \Doctrine\Common\Collections\ArrayCollection();
         }
 

@@ -110,17 +110,6 @@ class ProductController extends AbstractController
 
     /**
      * ProductController constructor.
-     *
-     * @param CsvExportService $csvExportService
-     * @param ProductClassRepository $productClassRepository
-     * @param ProductImageRepository $productImageRepository
-     * @param TaxRuleRepository $taxRuleRepository
-     * @param CategoryRepository $categoryRepository
-     * @param ProductRepository $productRepository
-     * @param BaseInfoRepository $baseInfoRepository
-     * @param PageMaxRepository $pageMaxRepository
-     * @param ProductStatusRepository $productStatusRepository
-     * @param TagRepository $tagRepository
      */
     public function __construct(
         CsvExportService $csvExportService,
@@ -550,7 +539,7 @@ class ProductController extends AbstractController
                     if (!$this->productImageRepository->findOneBy(['file_name' => $delete_image])) {
                         // 削除
                         $fs = new Filesystem();
-                        $fs->remove($this->eccubeConfig['eccube_save_image_dir'] . '/' . $delete_image);
+                        $fs->remove($this->eccubeConfig['eccube_save_image_dir'].'/'.$delete_image);
                     }
                 }
                 $this->entityManager->persist($Product);
@@ -892,8 +881,6 @@ class ProductController extends AbstractController
      *
      * @Route("/%eccube_admin_route%/product/export", name="admin_product_export")
      *
-     * @param Request $request
-     *
      * @return StreamedResponse
      */
     public function export(Request $request)
@@ -1022,9 +1009,6 @@ class ProductController extends AbstractController
      * Bulk public action
      *
      * @Route("/%eccube_admin_route%/product/bulk/product-status/{id}", requirements={"id" = "\d+"}, name="admin_product_bulk_product_status", methods={"POST"})
-     *
-     * @param Request $request
-     * @param ProductStatus $ProductStatus
      *
      * @return RedirectResponse
      */

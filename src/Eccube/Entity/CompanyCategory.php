@@ -56,14 +56,14 @@ if (!class_exists('\Eccube\Entity\CompanyCategory')) {
         private $Company;
 
         /**
-         * @var \Eccube\Entity\Category
+         * @var \Eccube\Entity\CategoryCompany
          *
-         * @ORM\ManyToOne(targetEntity="Eccube\Entity\Category", inversedBy="CompanyCategories")
+         * @ORM\ManyToOne(targetEntity="Eccube\Entity\CategoryCompany", inversedBy="CompanyCategories")
          * @ORM\JoinColumns({
          *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
          * })
          */
-        private $Category;
+        private $CategoryCompany;
 
         /**
          * Set companyId.
@@ -90,25 +90,25 @@ if (!class_exists('\Eccube\Entity\CompanyCategory')) {
         }
 
         /**
-         * Set categoryId.
+         * Set categoryCompanyId.
          *
-         * @param int $categoryId
+         * @param int $categoryCompanyId
          *
          * @return CompanyCategory
          */
-        public function setCategoryId($categoryId)
+        public function setCategoryCompanyId($categoryCompanyId)
         {
-            $this->category_id = $categoryId;
+            $this->category_id = $categoryCompanyId;
 
             return $this;
         }
 
         /**
-         * Get categoryId.
+         * Get categoryCompanyId.
          *
          * @return int
          */
-        public function getCategoryId()
+        public function getCategoryCompanyId()
         {
             return $this->category_id;
         }
@@ -136,25 +136,25 @@ if (!class_exists('\Eccube\Entity\CompanyCategory')) {
         }
 
         /**
-         * Set category.
+         * Set category_company.
          *
          * @return CompanyCategory
          */
-        public function setCategory(\Eccube\Entity\Category $category = null)
+        public function setCategoryCompany(\Eccube\Entity\CategoryCompany $categoryCompany = null)
         {
-            $this->Category = $category;
+            $this->CategoryCompany = $categoryCompany;
 
             return $this;
         }
 
         /**
-         * Get category.
+         * Get category_company.
          *
-         * @return \Eccube\Entity\Category|null
+         * @return \Eccube\Entity\CategoryCompany|null
          */
-        public function getCategory()
+        public function getCategoryCompany()
         {
-            return $this->Category;
+            return $this->CategoryCompany;
         }
     }
 }

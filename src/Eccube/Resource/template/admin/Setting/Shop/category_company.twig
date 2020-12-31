@@ -256,7 +256,7 @@ file that was distributed with this source code.
                                                         </a>
                                                         <div class="d-inline-block mr-2" data-tooltip="true" data-placement="top"
                                                              title="{{ 'admin.common.delete'|trans }}">
-                                                            <a class="btn btn-ec-actionIcon{% if Category.Children|length > 0 or Category.hasProductCategories %} disabled{% endif %}"
+                                                            <a class="btn btn-ec-actionIcon{% if Category.Children|length > 0 or Category.hasCompanyCategories %} disabled{% endif %}"
                                                                data-toggle="modal" data-target="#DeleteModal"
                                                                data-url="{{ url('admin_company_category_company_delete', {id: Category.id}) }}"
                                                                data-message="{{ 'admin.common.delete_modal__message'|trans({ "%name%" : Category.name }) }}">

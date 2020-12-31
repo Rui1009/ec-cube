@@ -579,6 +579,17 @@ admin.change_password.password_changed: パスワードを更新しました
 admin.error.go_to_login: ログイン画面へ
 
 #------------------------------------------------------------------------------------
+# 会社管理
+#------------------------------------------------------------------------------------
+admin.company.category_company_management: カテゴリ管理
+admin.company.company_management: 会社管理
+admin.company.category_company_all: すべてのカテゴリ
+admin.company.category_company: カテゴリ
+admin.company.category_company__company_card_title: カテゴリ
+admin.company.search_category_company: カテゴリ検索
+admin.company.move_to_category_company: カテゴリの追加・編集
+
+#------------------------------------------------------------------------------------
 # 商品管理
 #------------------------------------------------------------------------------------
 
