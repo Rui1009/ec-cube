@@ -7,7 +7,7 @@ http://www.ec-cube.co.jp/
 
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
-#} 
+#}
 {% extends 'default_frame.twig' %}
 
 {% set body_class = 'company_page' %}
@@ -78,12 +78,12 @@ file that was distributed with this source code.
                 <ul class="ec-shelfGrid">
                     {% for Company in pagination %}
                         <li class="ec-shelfGrid__item">
-                            <a href="{{ url('company_detail', {'id': Company.id}) }}">
+                            <div>
                                 <p class="ec-shelfGrid__item-image">
-                                    <img src="{{ asset(Company.main_list_image|no_image_product, 'save_image') }}">
+                                    s
                                 </p>
                                 <p>{{ Company.name }}</p>
-                            </a>
+                            </div>
                         </li>
                     {% endfor %}
                 </ul>
