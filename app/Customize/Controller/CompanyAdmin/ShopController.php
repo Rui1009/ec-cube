@@ -42,20 +42,20 @@ class ShopController extends AbstractController
      */
     public function index(Application $app, Request $request)
     {
-        $sample = $this->getUser();
-        $builder = $this->formFactory->createBuilder(ShopDetailType::class, ['description' => $sample['Shop']['name']]);
+        $Shop = $this->getUser()['Shop'];
+        $builder = $this->formFactory->createBuilder(ShopDetailType::class, ['description' => $Shop['name']]);
         $form = $builder->getForm();
-        $form['description']->setData($sample['Shop']['description']);
+        $form['description']->setData($Shop['description']);
         $form->handleRequest($request);
 
         if ('GET' === $request->getMethod()) {
             return [
-                'sample' => $sample['Shop'],
+                'shop' => $Shop,
                 'form' => $form->createView(),
             ];
         } elseif ('POST' === $request->getMethod()) {
             if ($form->isSubmitted() && $form->isValid()) {
-                $Shop = $this->shopRepository->findOneBy(['id' => $sample['Shop']['id']]);
+                $Shop = $this->shopRepository->findOneBy(['id' => $Shop['id']]);
                 $Shop->setDescription($form->get('description')->getData());
 
                 // ショップ登録処理
