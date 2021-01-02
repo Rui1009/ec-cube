@@ -5,9 +5,12 @@
 
 {% block main %}
     <h2>{{ Company.name }}</h2>
+    <div>
+        {{ Company.description }}
+    </div>
     {% for Product in Products %}
         <a href="/products/detail/{{ Product.id }}">
-            <h4>{{ Product.id }}</h4>
+            <h4>{{ Product.name }}</h4>
         </a>
     {% endfor %}
 {% endblock %}
