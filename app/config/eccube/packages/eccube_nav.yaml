@@ -89,6 +89,9 @@ parameters:
                         shop_index:
                             name: admin.setting.shop.shop_setting
                             url: admin_setting_shop
+                        shop_detail:
+                            name: admin.setting.shop.detail_setting
+                            url: admin_setting_shop_detail
                         shop_tradelaw:
                             name: admin.setting.shop.tradelaw_setting
                             url: admin_content_page_edit

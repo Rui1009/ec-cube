@@ -1093,6 +1093,7 @@ admin.content.maintenance_switch__off_message: メンテナンスモードを無
 admin.setting: 設定
 admin.setting.shop: 店舗設定
 admin.setting.shop.shop_setting: 基本設定
+admin.setting.shop.detail_setting: 店舗詳細設定
 admin.setting.shop.tradelaw_setting: 特定商取引法設定
 admin.setting.shop.agreement_setting: 利用規約設定
 admin.setting.shop.payment_list: 支払方法一覧
