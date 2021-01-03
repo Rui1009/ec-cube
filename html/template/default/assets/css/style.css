@@ -4234,6 +4234,8 @@ Styleguide 11.2
   width: 100%;
   transition: transform 0.3s;
   background: #fff; }
+.ec-layoutRole .ec-layoutRole__header {
+    background: #006fcf; }
 .ec-layoutRole .ec-layoutRole__contentTop {
     padding: 0; }
 .ec-layoutRole .ec-layoutRole__contents {
@@ -4314,7 +4316,8 @@ Styleguide 11.2
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 15px; }
+  padding-top: 15px;
+  color: #fff; }
 .ec-headerNaviRole:after {
     content: " ";
     display: table; }
@@ -4339,13 +4342,30 @@ Styleguide 11.2
     left: 50%;
     transform: translate(-50%, -50%); }
 .ec-headerNaviRole .ec-headerNaviRole__left {
-    width: calc(100% / 3); }
+    width: calc(100% / 2);
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+.ec-headerNaviRole .ec-headerNaviRole__logo {
+    display: block;
+    color: #fff;
+    font-weight: bold; }
+.ec-headerNaviRole .ec-headerNaviRole__logo a {
+      color: inherit;
+      text-decoration: none; }
+.ec-headerNaviRole .ec-headerNaviRole__logo a:hover {
+      text-decoration: none; }
+.ec-headerNaviRole .ec-headerNaviRole__logo a {
+      color: inherit; }
+.ec-headerNaviRole .ec-headerNaviRole__logo:hover a {
+      opacity: .8;
+      text-decoration: none; }
 .ec-headerNaviRole .ec-headerNaviRole__search {
     display: none; }
 .ec-headerNaviRole .ec-headerNaviRole__navSP {
     display: block; }
 .ec-headerNaviRole .ec-headerNaviRole__right {
-    width: calc(100% * 2 / 3);
+    width: calc(100% / 2);
     display: flex;
     justify-content: flex-end;
     align-items: center; }
@@ -4465,13 +4485,13 @@ Styleguide 11.2.3
     margin-right: 10px;
     margin-left: 10px;
     font-size: 18px;
-    color: black; }
+    color: #fff; }
 .ec-headerNav .ec-headerNav__itemLink {
     display: none;
     margin-right: 5px;
     font-size: 14px;
     vertical-align: middle;
-    color: black; }
+    color: #fff; }
 /*
 ヘッダー：検索ボックス
 
@@ -4854,6 +4874,7 @@ Styleguide 11.2
   border-width: 1px 0 0 1px;
   margin-bottom: 32px;
   padding: 0;
+  height: 48px;
   list-style: none; }
 .ec-subHeaderRole .ec-subHeaderRole__subHeaderlist a {
     color: inherit;
@@ -4862,17 +4883,18 @@ Styleguide 11.2
     text-decoration: none; }
 .ec-subHeaderRole .ec-subHeaderRole__item {
   width: 50%;
-  border-color: #D0D0D0;
-  border-style: solid;
-  border-width: 0 1px 1px 0;
+  height: 48px;
+  background-color: #16160e;
+  color: #fff;
   text-align: center;
   font-weight: bold; }
 .ec-subHeaderRole .ec-subHeaderRole__item a {
     padding: 16px;
     width: 100%;
+    height: 100%;
     display: inline-block; }
 .ec-subHeaderRole .ec-subHeaderRole__item a:hover {
-      background: #f5f7f8; }
+      text-decoration: underline; }
 .ec-subHeaderRole .active a {
   color: #DE5D50; }
 /**
@@ -4899,7 +4921,7 @@ Styleguide 11.3
 .ec-footerRole {
   border-top: 1px solid #7d7d7d;
   margin-top: 30px;
-  background: black; }
+  background: #006fcf; }
 /*
 フッターナビ
 
@@ -7653,7 +7675,7 @@ Styleguide 22.1
       .ec-headerRole .ec-headerRole__navSP {
         display: none; }
     .ec-headerNaviRole {
-      padding-bottom: 40px; }
+      padding-bottom: 15px; }
       .ec-headerNaviRole .ec-headerNaviRole__search {
         display: inline-block;
         margin-top: 10px; }
