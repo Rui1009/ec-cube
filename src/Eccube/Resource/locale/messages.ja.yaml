@@ -278,7 +278,8 @@ front.company.search_result__detail: '<span class="ec-font-bold">%count%件</spa
 front.company.search__company_not_found: お探しの会社は見つかりませんでした
 front.move.to.company.detail: 会社詳細へ
 front.shop.add_favorite: お気に入りに追加
-
+front.shop.info: 店舗情報
+front.shop.all.products: %name%の取扱商品
 
 #------------------------------------------------------------------------------------
 # 商品

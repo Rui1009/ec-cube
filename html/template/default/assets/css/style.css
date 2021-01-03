@@ -6022,10 +6022,22 @@ Twitter Bootstrap デフォルト準拠
     box-sizing: inherit; }
 .ec-shopRole img {
     width: 100%; }
+.ec-shopRole .ec-shopRole__contentColumn {
+    padding: 10px 0;
+    display: flex;
+    align-items: center; }
+.ec-shopRole .ec-shopRole__img {
+    display: table-cell;
+    width: 40%;
+    vertical-align: middle;
+    padding-right: 10px; }
 .ec-shopRole .ec-shopRole__title {
     display: flex;
     justify-content: space-between;
     align-items: center; }
+.ec-shopRole .ec-shopRole__contentTitle {
+    padding: 10px 0;
+    font-weight: 700; }
 /**
 メディアクエリ
 SP フォーストで記述する。
@@ -8030,6 +8042,10 @@ Styleguide 22.1
         width: 60%;
         margin-bottom: 16px;
         min-width: 350px; }
+      .ec-shopRole .ec-shopRole__img {
+        display: inline-block;
+        min-width: 80px;
+        max-width: 100px; }
       .ec-cartRole .ec-cartRole__totalText {
         margin-bottom: 30px;
         padding: 0; }
