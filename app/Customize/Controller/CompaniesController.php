@@ -108,8 +108,6 @@ class CompaniesController extends AbstractController
             $ids[] = $Shops->getId();
         }
 
-        // $ShopsRes = $this->shopRepository->findCompanies($ids);
-
         $orderByForm = $builder->getForm();
 
         $orderByForm->handleRequest($request);
@@ -128,7 +126,7 @@ class CompaniesController extends AbstractController
     /**
      * 会社詳細画面
      *
-     * @Route("/companies/{id}", name="company_detail", methods={"GET"})
+     * @Route("/companies/detail/{id}", name="company_detail", methods={"GET"})
      * @Template("Company/detail.twig")
      *
      * @return array
@@ -138,11 +136,14 @@ class CompaniesController extends AbstractController
         $Company = $this->shopRepository->find($id);
         $Product = $this->productRepository->findBy(['Shop' => ['id' => $id]]);
 
-        log_info(count($Product));
+        // searchForm
+        /* @var $builder \Symfony\Component\Form\FormBuilderInterface */
+        $builder = $this->formFactory->createNamedBuilder('', SearchCompanyType::class);
 
         return [
             'Company' => $Company,
             'Products' => $Product,
+            'form' => $builder->getForm()->createView(),
         ];
     }
 }

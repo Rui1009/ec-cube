@@ -10,28 +10,61 @@ file that was distributed with this source code.
 #}
 {% extends 'default_frame.twig' %}
 
-{% set body_class = 'company_page' %}
+{% set body_class = 'company_list_page' %}
 
 {% block main %}
 {% form_theme form 'Form/form_div_layout.twig' %}
-    <div class="ec-headerSearch">
-    <form method="get" class="searchform" action="{{ path('company_list') }}">
-        <div class="ec-headerSearch__category">
-            <div class="ec-select ec-select_search">
-                {{ form_widget(form.category_id, {'id': null, 'attr': {'class': 'category_id'}}) }}
-            </div>
-        </div>
-        <div class="ec-headerSearch__keyword">
-            <div class="ec-input">
-                {{ form_widget(form.name, {'id': null, 'attr': {'class': 'search-name', 'placeholder' : 'common.search_keyword' }} ) }}
-                <button class="ec-headerSearch__keywordBtn" type="submit">
-                    <div class="ec-icon">
-                        <img src="{{ asset('assets/icon/search-dark.svg') }}" alt="">
+    <div class="ec-headerNaviRole">
+        <div class="ec-headerSearch">
+            <form method="get" class="searchform" action="{{ path('company_list') }}">
+                <div class="ec-headerSearch__category">
+                    <div class="ec-select ec-select_search">
+                        {{ form_widget(form.category_id, {'id': null, 'attr': {'class': 'category_id'}}) }}
                     </div>
-                </button>
+                </div>
+                <div class="ec-headerSearch__keyword">
+                    <div class="ec-input">
+                        {{ form_widget(form.name, {'id': null, 'attr': {'class': 'search-name', 'placeholder' : 'common.search_keyword' }} ) }}
+                        <button class="ec-headerSearch__keywordBtn" type="submit">
+                            <div class="ec-icon">
+                                <img src="{{ asset('assets/icon/search-dark.svg') }}" alt="">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="ec-headerNaviRole__right">
+            <div class="ec-headerNaviRole__nav">
+                {{ include('Block/login.twig') }}
+            </div>
+            <div class="ec-headerRole__cart">
+                {{ include('Block/cart.twig') }}
             </div>
         </div>
-    </form>
+    </div>
+    <div class="ec-headerRole">
+        <div class="ec-headerRole__title">
+            <div class="ec-headerTitle">
+                <div class="ec-headerTitle__title">
+                    <h1>
+                        <a href="{{ url('homepage') }}">
+                            {{ BaseInfo.shop_name }}
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ec-subHeaderRole">
+        <ul class="ec-subHeaderRole__subHeaderlist">
+            <li class="ec-subHeaderRole__item">
+                <a href="{{ path('product_list')  }}">{{ 'front.move.to.product.list'|trans }}</a>
+            </li>
+            <li class="ec-subHeaderRole__item">
+                <a href="{{ path('company_list') }}">{{ 'front.move.to.company.list'|trans }}</a>
+            </li>
+        </ul>
     </div>
     {% if search_form.category_id.vars.errors|length > 0 %}
         <div class="ec-searchnavRole">
@@ -78,18 +111,14 @@ file that was distributed with this source code.
                 <ul class="ec-shelfGrid">
                     {% for Company in pagination %}
                         <li class="ec-shelfGrid__item">
-                            <div>
                                 <p class="ec-shelfGrid__item-image">
-                                    image
+                                    <img src={{ asset('assets/img/top/img_sample_shop01.jpg') }}>
                                 </p>
                                 <p>{{ Company.name }}</p>
-                                <p>{{ Company.description }}</p>
-                                <div class="ec-modal-wrap">
-                                    <div class="ec-modal-box">
-                                        <a href="{{ Company.id }}" class="ec-inlineBtn--action">{{ 'front.move.to.company.detail'|trans }}</a>
-                                    </div>
-                                </div>
-                            </div>
+                                {% if Company.description %}
+                                    <p>{{ Company.description|raw|nl2br }}</p>
+                                {% endif %}
+                                <a href="{{ url('company_detail', {'id': Company.id} )}}" class="ec-inlineBtn">{{ 'front.move.to.company.detail'|trans }}</a>
                         </li>
                     {% endfor %}
                 </ul>
