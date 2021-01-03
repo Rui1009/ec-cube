@@ -5988,6 +5988,49 @@ Styleguide 14.1
 SP フォーストで記述する。
 Twitter Bootstrap デフォルト準拠
  */
+/*
+店舗詳細
+
+店舗詳細ページに関する Project コンポーネントを定義します。
+*/
+.ec-shopRole {
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #525263;
+  -webkit-text-size-adjust: 100%;
+  width: 100%;
+  max-width: 1130px; }
+.ec-shopRole:after {
+    content: " ";
+    display: table; }
+.ec-shopRole:after {
+    clear: both; }
+.ec-shopRole textarea {
+    /* for chrome fontsize bug */
+    font-family: sans-serif; }
+.ec-shopRole img {
+    max-width: 100%; }
+.ec-shopRole html {
+    box-sizing: border-box; }
+.ec-shopRole *,
+  .ec-shopRole *::before,
+  .ec-shopRole *::after {
+    box-sizing: inherit; }
+.ec-shopRole img {
+    width: 100%; }
+.ec-shopRole .ec-shopRole__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+/**
+メディアクエリ
+SP フォーストで記述する。
+Twitter Bootstrap デフォルト準拠
+ */
 /**
  * ECCUBE 固有のスタイルユーティリティ
  */

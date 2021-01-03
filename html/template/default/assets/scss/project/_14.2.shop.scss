@@ -1,0 +1,17 @@
+@import "../mixins/media";
+
+/*
+店舗詳細
+
+店舗詳細ページに関する Project コンポーネントを定義します。
+*/
+
+.ec-shopRole {
+  @include container;
+  & &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
