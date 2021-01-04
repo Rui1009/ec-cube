@@ -1,0 +1,117 @@
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['setting', 'shopping_mall.shop'] %}
+
+{% block title %}{{ 'shopping_mall.admin.shop.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'shopping_mall.admin.shop.sub_title'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block main %}
+    <form role="form" class="form-horizontal" name="form1" id="form1" method="post" action="" enctype="multipart/form-data">
+        {{ form_widget(form._token) }}
+        <div class="c-contentsArea__cols">
+            <div class="c-contentsArea__primaryCol">
+                <div class="c-primaryCol">
+                    <div class="card rounded border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3"><span>{{ 'shopping_mall.admin.shop.name'|trans }}</span></div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.name) }}
+                                    {{ form_errors(form.name) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"><span>{{ 'shopping_mall.admin.shop.order_email'|trans }}</span></div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.order_email) }}
+                                    {{ form_errors(form.order_email) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"><span>{{ 'shopping_mall.admin.shop.memo'|trans }}</span></div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.memo) }}
+                                    {{ form_errors(form.memo) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="card rounded border-0 mb-4">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <div class="d-inline-block">
+                                                    <span class="card-title">{{ 'admin.company.category_company__company_card_title'|trans }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 text-right">
+                                                <a data-toggle="collapse" href="#category" aria-expanded="false"
+                                                    aria-controls="category">
+                                                    <i class="fa fa-angle-up fa-lg"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="collapse show ec-cardCollapse" id="category">
+                                        <div class="card-body">
+                                            {% macro tree(ChoicedIds, CompanyCategories, form) %}
+                                                {% import _self as selfMacro %}
+                                                <li class="c-directoryTree--registerItem category-li">
+                                                    <input type="checkbox" id="admin_company_category_company_{{ CompanyCategories.id }}" name="admin_shop[CompanyCategories][]" value="{{ CompanyCategories.id }}" {% if CompanyCategories.id in ChoicedIds %}checked{% endif %}>
+                                                    <label for="admin_company_category_company_{{ CompanyCategories.id }}">{{ CompanyCategories.name }}</label>
+                                                    <ul class="list-unstyled">
+                                                        {% for child,ChildCategory in CompanyCategories.children %}
+                                                            {{ selfMacro.tree(ChoicedIds, ChildCategory, form) }}
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                            {% endmacro %}
+
+                                            <div class="c-directoryTree--register rounded border mb-3 p-3">
+                                                {% import _self as renderMacro %}
+                                                {% for TopCategory in TopCategories %}
+                                                    <ul class="list-unstyled">
+                                                        {{ renderMacro.tree(ChoicedCategoryIds, TopCategory, form.CompanyCategories) }}
+                                                    </ul>
+                                                {% endfor %}
+                                                {{ form_errors(form.CompanyCategories) }}
+                                            </div>
+                                            <div class="d-block text-center">
+                                                <a class="btn btn-block btn-ec-regular"
+                                                    data-action="confirm"
+                                                    href="{{ path('admin_company_category_company') }}"
+                                                    title="{{ 'admin.common.move_to_confirm_message'|trans({
+                                                        '%name%' : 'admin.company.category_company_management'|trans}) }}">{{ 'admin.company.move_to_category_company'|trans }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </div>
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+        <div class="c-conversionArea">
+            <div class="c-conversionArea__container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-6">
+                        <div class="c-conversionArea__leftBlockItem">
+                            <a class="c-baseLink" href="{{ url('shopping_mall_admin_shop_index') }}">
+                                <i class="fa fa-backward" aria-hidden="true"></i><span>{{ 'shopping_mall.admin.shop.list'|trans }}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="ex-conversion-action" class="row align-items-center justify-content-end">
+                            <div class="col-auto">
+                                <button class="btn btn-ec-conversion px-5" type="submit">{{ 'admin.common.registration'|trans }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

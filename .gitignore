@@ -9,8 +9,8 @@ composer.phar
 !/app/cache/.gitkeep
 /app/log/*
 !/app/log/.gitkeep
-/app/Plugin/*
-!/app/Plugin/.gitkeep
+#/app/Plugin/*
+#!/app/Plugin/.gitkeep
 !/app/Plugin/ExamplePlugin
 /app/PluginData/*
 !/app/PluginData/.gitkeep
