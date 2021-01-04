@@ -329,7 +329,7 @@ final class EccubeEvents
     const ADMIN_SETTING_SHOP_PAYMENT_DELETE_COMPLETE = 'admin.setting.shop.payment.delete.complete';
 
     /**
-     * Admin/Setting/Shop/ShopController
+     * Admin/Setting/Shop/CompanyController
      */
     // index
     const ADMIN_SETTING_SHOP_SHOP_INDEX_INITIALIZE = 'admin.setting.shop.shop.index.initialize';
@@ -498,7 +498,7 @@ final class EccubeEvents
     const FRONT_FORGOT_RESET_COMPLETE = 'front.reset.index.complete';
 
     /**
-     * CompaniesController
+     * CompanyController
      */
     // index
     const FRONT_COMPANY_INDEX_INITIALIZE = 'front.company.index.initialize';

@@ -24,7 +24,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CompaniesController extends AbstractController
+class CompanyController extends AbstractController
 {
     /**
      * @var ShopRepository
@@ -37,7 +37,7 @@ class CompaniesController extends AbstractController
     protected $productRepository;
 
     /**
-     * CompaniesController constructor.
+     * CompanyController constructor.
      */
     public function __construct(ShopRepository $shopRepository, ProductRepository $productRepository)
     {
@@ -46,7 +46,7 @@ class CompaniesController extends AbstractController
     }
 
     /**
-     * 会社一覧画面
+     * 　会社一覧画面
      *
      * @Route("/companies/list", name="company_list")
      * @Template("Company/list.twig")
